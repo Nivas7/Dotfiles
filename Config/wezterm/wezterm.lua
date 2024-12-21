@@ -4,6 +4,7 @@
 
 local wezterm = require("wezterm")
 local opacity = 0.75
+local colors = require("colors.custom")
 
 return {
 	--                                                           ▲
@@ -25,7 +26,7 @@ return {
 	--                                                           ▲
 	--   Colors                                                  █
 	--                                                           ▼
-	color_scheme = "Catppuccin Mocha",
+	colors = colors,
 	force_reverse_video_cursor = true,
 	--                                                           ▲
 	--   Tabs                                                    █
