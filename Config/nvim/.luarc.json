@@ -1,0 +1,10 @@
+{
+    "diagnostics.disable": [
+        "undefined-global",
+        "deprecated"
+    ],
+    "diagnostics.globals": [
+        "vim",
+        "msg"
+    ]
+}
