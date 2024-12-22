@@ -1,20 +1,7 @@
 return {
-  {
-    "preservim/vim-markdown",
-    enabled = false,
-    ft = { "markdown" },
-  },
-  -- markdown preview
-  {
-    "iamcco/markdown-preview.nvim",
-    build = "cd app && yarn install",
-    ft = { "markdown" },
-    keys = {
-      {
-        "<leader>mp",
-        "<cmd>MarkdownPreviewToggle<CR>",
-        { desc = "toggle markdown preview", noremap = true },
-      },
-    },
-  },
+  "MeanderingProgrammer/markdown.nvim",
+  main = "render-markdown",
+  opts = {},
+  name = "render-markdown", -- Only needed if you have another plugin named markdown.nvim
+  dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you use the mini.nvim suite
 }
