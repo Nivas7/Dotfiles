@@ -34,10 +34,10 @@ return {
 	initial_cols = 120,
 	window_decorations = "RESIZE",
 	window_background_opacity = opacity,
-	window_close_firmation = "NeverPrompt",
+	window_close_confirmation = "NeverPrompt",
 	max_fps = 60,
 	cursor_blink_rate = 250,
-	inactive_panel_hsb = {
+	inactive_pane_hsb = {
 		saturation = 1.0,
 		brightness = 1.0,
 	},
