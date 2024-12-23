@@ -7,38 +7,52 @@ local opacity = 0.75
 local colors = require("colors.custom")
 
 return {
-	--                                                           ▲
-	--   General                                                 █
-	--                                                           ▼
+	--
+	--   General
+	--
 	enable_wayland = false,
-	font_size = 14.0,
+	warn_about_missing_glyphs = false,
+	font_size = 14,
 	font = wezterm.font_with_fallback({
 		{ family = "Lilex Nerd Font Mono" },
 		{ family = "JetBrainsMono Nerd Font Mono" },
 		{ family = "Symbols Nerd Font Mono" },
 	}),
-	--                                                           ▲
-	--   Window                                                  █
-	--                                                           ▼
-	initial_rows = 45,
-	initial_cols = 180,
+	harfbuzz_features = { "liga=1" },
+	--
+	--   Window
+	--
+	window_padding = {
+		left = 5,
+		right = 5,
+		top = 5,
+		bottom = 5,
+	},
+	underline_position = -6,
+	underline_thickness = "250%",
+	initial_rows = 25,
+	initial_cols = 120,
 	window_decorations = "RESIZE",
 	window_background_opacity = opacity,
-	window_close_confirmation = "NeverPrompt",
+	window_close_firmation = "NeverPrompt",
 	max_fps = 60,
 	cursor_blink_rate = 250,
-	--                                                           ▲
-	--   Colors                                                  █
-	--                                                           ▼
+	inactive_panel_hsb = {
+		saturation = 1.0,
+		brightness = 1.0,
+	},
+	--
+	--   Colors
+	--
 	colors = colors,
 	force_reverse_video_cursor = true,
-	--                                                           ▲
-	--   Tabs                                                    █
-	--                                                           ▼
+	--
+	--   Tabs
+	--
 	enable_tab_bar = false,
-	--                                                           ▲
-	--   Keybindings                                             █
-	--                                                           ▼
+	--
+	--   Keybindings
+	--
 	keys = {
 		{
 			key = "f",
