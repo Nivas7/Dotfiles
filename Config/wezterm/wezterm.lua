@@ -12,7 +12,11 @@ return {
 	--                                                           ▼
 	enable_wayland = false,
 	font_size = 14.0,
-	font = wezterm.font("JetBrains Mono"),
+	font = wezterm.font_with_fallback({
+		{ family = "Lilex Nerd Font Mono" },
+		{ family = "JetBrainsMono Nerd Font Mono" },
+		{ family = "Symbols Nerd Font Mono" },
+	}),
 	--                                                           ▲
 	--   Window                                                  █
 	--                                                           ▼
