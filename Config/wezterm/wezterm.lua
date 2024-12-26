@@ -5,6 +5,7 @@
 local wezterm = require("wezterm")
 local opacity = 0.75
 local colors = require("colors.custom")
+require("events")
 
 return {
 	--
