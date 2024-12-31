@@ -157,6 +157,31 @@ function command_not_found_handler {
     return 127
 }
 
+
+# Functions
+detect_virtualenv() {
+  if [[ -z "$VIRTUAL_ENV" ]] ; then
+    # If env folder is found, activate the virtualenv
+    if [[ -d ./venv ]] ; then
+      source ./venv/bin/activate
+    elif [[ -d ./.venv ]] ; then
+      source ./.venv/bin/activate
+    fi
+  else
+    # Check if the current folder belongs to the earlier VIRTUAL_ENV folder
+    # If not, deactivate the virtual environment
+    parentdir="$(dirname "$VIRTUAL_ENV")"
+    if [[ "$PWD"/ != "$parentdir"/* ]] ; then
+      deactivate
+    fi
+  fi
+}
+
+
+# Run Python virtualenv detection script
+autoload -U add-zsh-hook
+add-zsh-hook chpwd detect_virtualenv
+
 # ==========================
 # Final Touches
 # ==========================
@@ -164,3 +189,5 @@ fastfetch --colors-block-range-start 9 --colors-block-width 3
 
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$PATH:/home/deivi/.spicetify
+
+export PATH=$PATH:/home/nivaz/.spicetify

@@ -1,0 +1,9 @@
+[16:43:23 2024-12-31] FETCHING Version 2.38.7
+[16:43:23 2024-12-31] CREATING /home/nivaz/.spicetify
+[16:43:23 2024-12-31] DOWNLOADING https://github.com/spicetify/cli/releases/download/v2.38.7/spicetify-2.38.7-linux-amd64.tar.gz
+[16:43:34 2024-12-31] EXTRACTING /home/nivaz/.spicetify/spicetify.tar.gz
+[16:43:34 2024-12-31] SETTING EXECUTABLE PERMISSIONS TO /home/nivaz/.spicetify/spicetify
+[16:43:34 2024-12-31] REMOVING /home/nivaz/.spicetify/spicetify.tar.gz
+[16:43:34 2024-12-31] APPENDING /home/nivaz/.spicetify to PATH in /home/nivaz/.config/zsh/.zshrc
+[16:43:34 2024-12-31] spicetify v2.38.7 was installed successfully to /home/nivaz/.spicetify
+[16:43:34 2024-12-31] Run 'spicetify --help' to get started
