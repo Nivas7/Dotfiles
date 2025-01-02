@@ -14,13 +14,7 @@
   //##################
   //### BAR ORDER  ###
   //##################
-  "modules-left": [
-    "idle_inhibitor",
-    "hyprland/workspaces",
-    "custom/storage",
-    "cpu",
-    "memory",
-  ],
+  "modules-left": ["hyprland/workspaces", "custom/storage", "cpu", "memory"],
   "modules-center": [
     // "hyprland/window",
     // "custom/weather",
@@ -92,7 +86,7 @@
     "format-plugged": "",
     // "format-alt": "{time} {icon}",
     // "format-good": "", // An empty format will hide the module
-    // "format-full": "{icon} {capacity}%",
+    "format-full": "{icon} {capacity}%",
     "format-icons": [" ", " ", " ", " ", " "],
     // "tooltip-format": "{capacity}%"
   },
@@ -163,21 +157,6 @@
     "return-type": "json",
     "exec": "~/.config/waybar/modules/storage.sh",
   },
-  "custom/song": {
-    "interval": 5,
-    "exec": "~/.local/bin/now-playing",
-    "on-click": "~/.local/bin/player next_track",
-    "on-click-right": "~/.local/bin/player previous_track",
-    "escape": true,
-  },
-  "backlight": {
-    "format": "󰃟 ",
-    // "format": "<big>{icon}</big> {percent}%",
-    "format-icons": [" ", " ", " ", "󰃞", "󰃟", "󰃝", "󰃠"],
-    "on-scroll-down": "brightnessctl set 1%-",
-    "on-scroll-up": "brightnessctl set +1%",
-    "tooltip-format": "Backlight: {percent}%",
-  },
   "custom/weather": {
     "format": "{}",
     "format-alt": "{alt}: {}",
@@ -187,26 +166,11 @@
     "exec": "~/.config/waybar/modules/weather.sh",
     "exec-if": "ping wttr.in -c1",
   },
-  "idle_inhibitor": {
-    "format": "<big> </big>", //{icon}
-    "format-icons": {
-      "activated": "",
-      "deactivated": "",
-    },
-    "timeout": 60.0,
-    "tooltip": false,
-  },
   "custom/notification": {
     "format": "",
     "on-click": "~/.local/bin/notify-history",
     "on-click-right": "dunstctl close-all",
     "tooltip-format": "Notifications",
-  },
-  "custom/update": {
-    "exec": "~/.local/bin/check-update",
-    "interval": 43200,
-    "on-click": "~/.local/bin/check-update",
-    "tooltip-format": "Check Updates",
   },
   "tray": {
     "icon-size": 17,
