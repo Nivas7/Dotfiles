@@ -1,3 +1,289 @@
-/* change the style from here */
 
-@import url("styles/onebar.css");
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    padding: 0;
+    border-radius: 12px;
+    min-height: 0;
+    margin: 0px;
+    border: none;
+    text-shadow: none;
+    transition: none;
+    box-shadow: none;
+  }
+   
+  window {
+    padding: 12px;
+  }
+   
+  /* the whole window */
+  window#waybar {
+    background-color: rgba(30, 35, 38, 0.8);
+    border-radius: 0;
+    opacity: 1;
+    color: #fff4d2;
+    padding: 12px;
+  }
+   
+  window#waybar.hidden {
+    opacity: 1;
+  }
+   
+  #custom-rofi {
+    color: #1E2326;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 12px;
+    background-color: #7FBBB3;
+    padding: 0 10px 0 10px;
+    font-size: 26px;
+    font-weight: 400;
+  }
+   
+  /* ================================ */
+  /*       workspaces module          */
+  /* ================================ */
+  #workspaces {
+    border-radius: 12px;
+    background-color: #1E2326;
+    border: 3px solid #1E2326;
+    margin: 8px;
+  }
+   
+  #workspaces button {
+    color: #A7C080;
+    border: 0px solid #1E2326;
+    border-radius: 12px;
+    padding: 0 4px;
+    margin: 0px 0px;
+    min-width: 25px;
+    font-size: 13px;
+    font-weight: 400;
+  }
+   
+  #workspaces button:hover {
+    color: #1E2326;
+    background: #2e383c;
+    min-width: 25px;
+  }
+   
+  #workspaces button.visible {
+    color: #1E2326;
+    background-color: #8ec07c;
+    padding: 0 4px;
+    margin: 0px 3px;
+    min-width: 25px;
+    font-size: 13px;
+    font-weight: 400;
+  }
+   
+  #workspaces button.visible:hover {
+    color: #1E2326;
+    background-color: #8ec07c;
+    padding: 0 4px;
+    margin: 0px 3px;
+    min-width: 25px;
+    font-size: 13px;
+    font-weight: 400;
+  }
+   
+  #workspaces button.active {
+    color: #1E2326;
+    background-color: #8ec07c;
+    padding: 0 4px;
+    margin: 0px 0px;
+    min-width: 25px;
+    font-size: 13px;
+    font-weight: 400;
+  }
+   
+  #workspaces button.active:hover {
+    color: #1E2326;
+    border: 0px solid #1E2326;
+    background-color: #8ec07c;
+    padding: 0 4px;
+    margin: 0px 0px;
+    min-width: 25px;
+    font-size: 13px;
+    font-weight: 400;
+  }
+   
+  #workspaces button.urgent {
+    color: #1E2326;
+    border: 0px solid #1E2326;
+    background-color: #e67e80;
+    padding: 0 4px;
+    margin: 0px 3px;
+    min-width: 25px;
+    font-size: 13px;
+    font-weight: 400;
+  }
+   
+  /* ================================ */
+  /*            window                 */
+  /* ================================ */
+   
+  #window {
+    font-size: 13px;
+    font-weight: 400;
+    color: #d699b6;
+    background: #1E2326;
+    padding-right: 4px;
+    border: 3px solid #1E2326;
+    border-radius: 12px;
+    margin: 8px 8px 8px 0px;
+  }
+   
+  #window {
+    border-radius: 12px;
+  }
+   
+  /* ================================ */
+  /*            tray                 */
+  /* ================================ */
+   
+  #tray {
+    padding: 0 6px;
+    background: #1E2326;
+  }
+   
+  /* ================================ */
+  /*            disk                 */
+  /* ================================ */
+   
+  #disk {
+    font-size: 13px;
+    font-weight: 400;
+    color: #e67e80;
+    background: #1E2326;
+    padding-right: 4px;
+    border: 3px solid #1E2326;
+    border-radius: 12px;
+    margin: 8px 8px 8px 0px;
+  }
+   
+  /* ================================ */
+  /*            cpu                  */
+  /* ================================ */
+  #cpu {
+    font-size: 13px;
+    font-weight: 400;
+    color: #e69875;
+    background: #1E2326;
+    padding-right: 4px;
+    border: 3px solid #1E2326;
+    margin: 8px 8px 8px 0px;
+  }
+   
+  /* ================================ */
+  /*            temp                  */
+  /* ================================ */
+  #temperature {
+    font-size: 13px;
+    font-weight: 400;
+    color: #dbbc7f;
+    background: #1E2326;
+    padding-right: 4px;
+    border: 3px solid #1E2326;
+    margin: 8px 8px 8px 0px;
+  }
+   
+  #temperature.critical {
+    font-size: 13px;
+    font-weight: 400;
+    color: #cc241d;
+    background: #1E2326;
+    padding-right: 4px;
+    border: 3px solid #1E2326;
+  }
+   
+  /* ================================ */
+  /*            backlight             */
+  /* ================================ */
+  #backlight {
+    font-size: 13px;
+    font-weight: 400;
+    color: #DBBc7F;
+    background: #1E2326;
+    padding-right: 4px;
+    border: 3px solid #1E2326;
+    margin: 8px;  margin: 8px 8px 8px 0px;
+  }
+   
+  /* ================================ */
+  /*            memory                */
+  /* ================================ */
+  #custom-memory {
+    font-size: 13px;
+    font-weight: 400;
+    color: #458588;
+    background: #1E2326;
+    padding-right: 4px;
+    border: 3px solid #1E2326;
+  }
+   
+  /* ================================ */
+  /*         pulseaudio               */
+  /* ================================ */
+  #pulseaudio {
+    font-size: 13px;
+    font-weight: 400;
+    color: #A7C080;
+    background: #1E2326;
+    padding-right: 4px;
+    border: 3px solid #1E2326;
+    margin: 8px 8px 8px 0px;
+  }
+   
+  #pulseaudio.muted {
+    font-size: 13px;
+    font-weight: 400;
+    color: #A7C080;
+    background: #1E2326;
+    padding-right: 4px;
+    border: 3px solid #1E2326;
+  }
+   
+  /* ================================ */
+  /*            battery               */
+  /* ================================ */
+  #battery {
+    font-size: 13px;
+    font-weight: 400;
+    color: #83c092;
+    background: #1E2326;
+    padding-right: 4px;
+    border: 3px solid #1E2326;
+    margin: 8px 8px 8px 0px;
+  }
+   
+  #battery.critical {
+    font-size: 13px;
+    font-weight: 400;
+    color: #83c092;
+    background: #1E2326;
+    padding-right: 4px;
+    border: 3px solid #1E2326;
+  }
+   
+  #battery.warning {
+    font-size: 13px;
+    font-weight: 400;
+    color: #83c092;
+    background: #1E2326;
+    padding-right: 4px;
+    border: 3px solid #1E2326;
+  }
+  /* ================================ */
+  /*            clock                 */
+  /* ================================ */
+  #clock {
+    font-size: 13px;
+    font-weight: 400;
+    color: #a7c080;
+    background: #1E2326;
+    padding-right: 4px;
+    border: 3px solid #1E2326;
+    border-radius: 12px;
+    margin: 8px 8px 8px 0px;
+  }

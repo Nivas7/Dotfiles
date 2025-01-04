@@ -158,6 +158,10 @@ function command_not_found_handler {
 }
 
 
+zle -N zellij-sessionizer
+bindkey -M viins '^F' zellij-sessionizer
+
+
 # Functions
 detect_virtualenv() {
   if [[ -z "$VIRTUAL_ENV" ]] ; then
@@ -188,6 +192,7 @@ add-zsh-hook chpwd detect_virtualenv
 fastfetch --colors-block-range-start 9 --colors-block-width 3
 
 export PATH=$HOME/.local/bin:$PATH
-export PATH=$PATH:/home/deivi/.spicetify
 
-export PATH=$PATH:/home/nivaz/.spicetify
+export BUN_INSTALL="/home/nivaz/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+

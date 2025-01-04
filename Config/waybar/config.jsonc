@@ -1,183 +1,159 @@
-// github.com/pahasara/HyprDots
 {
-  //#####################
-  //### CONFIGURATION ###
-  //#####################
-  // "reload_style_on_change": true,
-  "margin-top": 7,
-  "margin-left": 15,
-  "margin-right": 15,
-  "margin-bottom": 0,
-  "layer": "bottom",
-  "position": "top",
-  "spacing": 10,
-  //##################
-  //### BAR ORDER  ###
-  //##################
-  "modules-left": ["hyprland/workspaces", "custom/storage", "cpu", "memory"],
-  "modules-center": [
-    // "hyprland/window",
-    // "custom/weather",
-    "custom/song",
-  ],
-  "modules-right": [
-    "tray",
-    // "custom/update",
-    "network",
-    // "backlight",
-    "wireplumber",
-    "battery",
-    "clock",
-  ],
-  //################
-  //### MODULES  ###
-  //################
-  "hyprland/workspaces": {
-    "active-only": false,
-    "all-outputs": false,
-    "format": "{icon}",
-    "on-click": "activate",
-    "persistent-workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
-      // "5": [],
-      // "6": [],
-      // "7": [],
-      // "8": [],
-      // "9": [],
-      // "10": []
+    "layer": "top",
+    "height": 40,
+    "spacing": 0,
+    "margin-top" :0,
+    "margin-right" :0,
+    "margin-left" :0,
+   
+    "modules-left": [
+      "custom/rofi",
+      "sway/workspaces",
+      "sway/window",
+      "hyprland/workspaces",
+      "hyprland/window"
+    ],
+   
+    "modules-center": ["clock"],
+   
+    "modules-right": [
+      "disk",
+      "cpu",
+      "temperature",
+      "backlight",
+      "pulseaudio",
+      "battery"
+    ],
+   
+    "custom/rofi": {
+          "format": "<span >󰣇</span>",
+      "escape" : true,
+      "tooltip" : false
+      },
+   
+    // Modules configuration
+    "sway/workspaces": {
+      "disable-scroll": true,
+      "active-only": false,
+      "all-outputs": true,
+      "warp-on-scroll": false,
+      "format": "{icon}",
+      "format-icons": {
+        "1": "<span >1</span>",
+        "2": "<span >2</span>",
+        "3": "<span >3</span>",
+        "4": "<span >4</span>",
+        "5": "<span >5</span>"
+      }
     },
-    "format": "<small>{icon}</small>",
-    "format-icons": {
-      "1": "",
-      "2": "",
-      "3": "",
-      "4": "",
-      "5": "",
-      "6": "",
-      "7": "",
-      "8": "",
-      "9": "",
-      "10": "",
-      // "active": "<small></small>",
-      "default": "",
+   
+    "sway/window": {
+      "format": "<span color='#222222' bgcolor='#d3869b' > 󰣆 </span> {app_id}",
+      "separate-outputs": true,
+      "icon":false,
     },
-  },
-  "hyprland/window": {
-    "max-length": 40,
-    "tooltip": false,
-  },
-  "clock": {
-    // "format": "{:%H:%M | %a %d}",
-    "format": "{:%a <big>%d</big> %b  %I:<big>%M</big> %p}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-  },
-  "battery": {
-    "interval": 5,
-    "states": {
-      // "good": 95,
-      "warning": 35,
-      "critical": 20,
+   
+    "hyprland/workspaces": {
+      "disable-scroll": true,
+      "active-only": false,
+      "all-outputs": true,
+      "warp-on-scroll": true,
+      "format": "{icon}",
+      "persistent-workspaces": {
+        "*": 5,
+      },
+      "format-icons": {
+        "1": "<span >1</span>",
+        "2": "<span >2</span>",
+        "3": "<span >3</span>",
+        "4": "<span >4</span>",
+        "5": "<span >5</span>"
+      }
     },
-    "format": "{icon} {capacity}%",
-    "format-charging": " {capacity}%",
-    "format-plugged": "",
-    // "format-alt": "{time} {icon}",
-    // "format-good": "", // An empty format will hide the module
-    "format-full": "{icon} {capacity}%",
-    "format-icons": [" ", " ", " ", " ", " "],
-    // "tooltip-format": "{capacity}%"
-  },
-  "network": {
-    // "interface": "wlp2*", // (Optional) To force the use of this interface
-    /* "format-wifi": "{essid} ({signalStrength}%) ", */
-    "format": "",
-    "format-wifi": "{icon} {essid}",
-    "format-ethernet": " {ipaddr}/{cidr}",
-    "tooltip-format": "{essid}",
-    "format-linked": " {ifname} (No IP)",
-    "format-disconnected": "",
-    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
-    "on-click": "~/.local/bin/rofi-wifi",
-    "tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
-  },
-  "network#speed": {
-    "interval": 2,
-    "format": "{ifname}",
-    "format-wifi": " {bandwidthUpBits}  {bandwidthDownBits}",
-    "format-ethernet": "󰌘  {bandwidthUpBits}  {bandwidthDownBits}",
-    "format-disconnected": "󰌙",
-    "tooltip-format": "{ipaddr}",
-    "format-linked": "󰈁 {ifname} (No IP)",
-    "tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
-    "tooltip-format-ethernet": "{ifname} 󰌘",
-    "tooltip-format-disconnected": "󰌙 Disconnected",
-    "min-length": 20,
-    "max-length": 24,
-    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
-  },
-  "wireplumber": {
-    "format": "{icon}",
-    "format-bluetooth": " {icon} {volume}% {format_source}",
-    "format-bluetooth-muted": "  {icon} {format_source}",
-    "format-muted": "  {format_source}",
-    "format-source": " {volume}%",
-    "format-source-muted": " ",
-    "format-icons": {
-      "headphone": " ",
-      "hands-free": " ",
-      "headset": " ",
-      "phone": "",
-      "portable": "",
-      "car": " ",
-      "default": ["", "", " "],
+   
+    "hyprland/window": {
+      "format": "<span color='#d699b6' > 󰣆 </span> {class} ",
+      "separate-outputs": false,
+      "icon":false,
     },
-    "tooltip-format": "Volume: {volume}%",
-    "on-click": "easyeffects",
-  },
-  "cpu": {
-    "interval": 2,
-    "format": " {usage}%",
-    "tooltip": true,
-  },
-  "memory": {
-    "interval": 5,
-    "format": " {used:0.1f}G",
-    "format-alt": "{percentage}% 󰾆",
-    "tooltip": true,
-    "tooltip-format": "{used:0.1f}GB/{total:0.1f}G",
-    "on-click-right": "kitty --title btop sh -c 'btop'",
-  },
-  "custom/storage": {
-    "interval": 300,
-    "format": " {}",
-    "format-alt": "{percentage}%  ",
-    "return-type": "json",
-    "exec": "~/.config/waybar/modules/storage.sh",
-  },
-  "custom/weather": {
-    "format": "{}",
-    "format-alt": "{alt}: {}",
-    "format-alt-click": "click-right",
-    "interval": 1800,
-    "return-type": "json",
-    "exec": "~/.config/waybar/modules/weather.sh",
-    "exec-if": "ping wttr.in -c1",
-  },
-  "custom/notification": {
-    "format": "",
-    "on-click": "~/.local/bin/notify-history",
-    "on-click-right": "dunstctl close-all",
-    "tooltip-format": "Notifications",
-  },
-  "tray": {
-    "icon-size": 17,
-    "spacing": 3,
-  },
-  "custom/seperator": {
-    "format": "|",
-    "tooltip": false,
-  },
-}
+   
+    "tray": {
+      "icon-size": 15,
+      "spacing": 8
+    },
+   
+    "disk": {
+      "format": "<span color='#e67e80' >  </span> {free} ",
+      "interval": 20
+    },
+   
+    "cpu": {
+      "format": "<span color='#e69875' >  </span> {usage}% ",
+      "tooltip": false,
+      "interval": 1
+    },
+   
+    "temperature": {
+      "tooltip":false,
+      "thermal-zone": 2,
+      "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+      "critical-threshold": 70,
+      "format": "<span color='#dbbc7f' >  </span> {temperatureC}°C ",
+      "format-critical": "<span color='#dbbc7f' >  </span> {temperatureC}°C ",
+    },
+   
+    "backlight": {
+      // "device": "acpi_video1",
+      "format": "<span color='#DBBc7F' > 󰃜 </span> {percent}% ",
+      "tooltip": false
+    },
+   
+    "custom/memory": {
+      "exec": "~/.config/custom_scripts/memory_usage.sh",
+      "interval": 2,
+      "return-type": "json",
+      "format": "<span color='#222222' bgcolor='#458588' >  </span> {}"
+    },
+   
+    "pulseaudio": {
+      // "scroll-step": 1, // %, can be a float
+      "format": "<span color='#A7C080'>  </span> {volume}% ",
+      "format-muted": "<span color='#A7C080'>  </span> {volume}% ",
+      "format-bluetooth": "<span color='#A7C080'> 󰂰 </span> {volume}% ",
+      "format-bluetooth-muted": "<span color='#A7C080'> 󰂲 </span> {volume}% ",
+      "format-source": "{volume}%  ",
+      "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+      "tooltip": false,
+      "max-volume": 130
+    },
+   
+    "battery#bat2": {
+      "bat": "BAT2"
+    },
+   
+    "battery": {
+      "interval": 1,
+      "states": {
+        "good": 99,
+        "warning": 30,
+        "critical": 20
+      },
+      "format-icons": ["󰂎","󰁺","󰁻","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
+      "format": "<span color='#83C092' > {icon} </span> {capacity}% ",
+      "format-critical": "<span color='#83C092'> {icon} </span> {capacity}% ",
+      "format-warning": "<span color='#83C092' > {icon} </span> {capacity}% ",
+      "format-full": "<span color='#83C092' > {icon} </span> {capacity}%" ,
+      "format-charging": "<span color='#83C092' > 󰂅 </span> {capacity}% ",
+      "format-charging-warning": "<span color='#83C092' > 󰢝 </span> {capacity}% ",
+      "format-charging-critical": "<span color='#83C092' > 󰢜 </span> {capacity}% ",
+      "format-plugged": "<span color='#83C092' > 󰂅 </span> {capacity}% ",
+      "format-alt": "<span color='#83C092' > 󱧥 </span> {time} ",
+      "tooltip": false
+    },
+   
+    "clock": {
+      "format": "<span color='#a7c080' >  </span> {:%a %b %d %I:%M %p} ",
+      "tooltip": false,
+      "interval":1,
+    }
+  }
