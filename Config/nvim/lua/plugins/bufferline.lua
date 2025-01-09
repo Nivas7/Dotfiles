@@ -1,13 +1,12 @@
 return {
 	"akinsho/bufferline.nvim",
-	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	enabled = true,
 	version = "*",
 	dependencies = "nvim-tree/nvim-web-devicons",
 	opts = {
 		options = {
 			debug = { logging = true },
-			mode = "buffers",
+			mode = "tabs",
 			indicator = { icon = "▍", style = "underline" },
 			sort_by = "insert_after_current",
 			move_wraps_at_ends = true,

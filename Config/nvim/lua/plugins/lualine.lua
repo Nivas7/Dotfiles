@@ -4,7 +4,6 @@ return {
 		"nvim-tree/nvim-web-devicons",
 	},
 	enabled = true,
-	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = function()
 		-- Eviline config for lualine
 		-- Author: shadmansaleh
