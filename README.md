@@ -26,6 +26,6 @@ This repository contains personal configuration files for Linux-based systems, s
 
 > TODO:
 
-- [ ] GTK theme
+- [x] GTK theme
 - [ ] Installation Setup
 - [ ] Credits
