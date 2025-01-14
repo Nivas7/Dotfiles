@@ -39,4 +39,5 @@ return {
 	{
 		"m-demare/hlargs.nvim",
 	},
+	{ "MunifTanjim/nui.nvim", lazy = true },
 }
