@@ -10,6 +10,7 @@ export PATH="$PNPM_HOME:$PATH"
 export PATH="$HOME/.scripts:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH=$PATH:/usr/local/go/bin
 export GPG_TTY="${TTY:-$(tty)}"
 
 export SUDO_PROMPT="passwd: "
@@ -17,6 +18,8 @@ export TERMINAL="wezterm"
 export BROWSER="firefox"
 export VISUAL="nvim"
 export EDITOR="nvim"
+
+export ELECTRON_OZONE_PLATFORM_HINT="auto"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
