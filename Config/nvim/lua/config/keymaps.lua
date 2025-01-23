@@ -4,7 +4,7 @@ local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "db", 'vb"_d')
 
 -- Select all
-vim.keymap.set("n", "<C-s>", "gg<S-v>G")
+vim.keymap.set("n", "<C-a>", "gg<S-v>G")
 
 vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "Copy to system clipboard" })
 vim.keymap.set({ "n", "v" }, "<leader>p", '"+p', { desc = "Paste from system clipboard" })
