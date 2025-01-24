@@ -12,6 +12,15 @@ return {
 	keys = {
 		{ "<leader><tab>", ":Neotree toggle float<CR>", silent = true, desc = "Float File Explorer" },
 		{ "<leader>ee", ":Neotree toggle left<CR>", silent = true, desc = "Left File Explorer" },
+		{
+			"<leader>ff",
+			function()
+				local filter = require("neo-tree.sources.filesystem.lib.filter")
+				local state = openNeotree()
+				filter.show_filter(state, true, true)
+			end,
+			desc = "Find File",
+		},
 	},
 	cmd = { "Neotree" },
 	opts = {
