@@ -1,103 +1,89 @@
 return {
-  -- Syntax highlightings
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    event = { "BufReadPost", "BufNewFile" },
-    cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter-textobjects",
-      "windwp/nvim-ts-autotag",
-    },
-    config = function()
-      require("nvim-ts-autotag").setup()
-      require("nvim-treesitter.configs").setup({
-        highlight = {
-          enable = true,
-        },
-        indent = {
-          enable = true,
-        },
-        ensure_installed = {
-          "vim",
-          "vimdoc",
-          "markdown",
-          "markdown_inline",
-          "bash",
-          "regex",
-          "c",
-          "cpp",
-          "go",
-          "gomod",
-          "java",
-          "javascript",
-          "typescript",
-          "yaml",
-          "matlab",
-          "tsx",
-          "json",
-          "toml",
-          "html",
-          "css",
-          "scss",
-          "lua",
-          "rust",
-          "kdl",
-          "python",
-          "gleam",
-        },
-        auto_install = true,
-        playground = {
-          enable = true,
-          disable = {},
-        },
-        textobjects = {
-          select = {
-            enable = true,
-            -- Automatically jump forward to textobj, similar to targets.vim
-            lookahead = true,
-            keymaps = {
-              ["af"] = { query = "@function.outer", desc = "Select outer part of a function region" },
-              ["if"] = { query = "@function.inner", desc = "Select inner part of a function region" },
-              ["ac"] = { query = "@class.outer", desc = "Select outer part of a class region" },
-              ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
-            },
-          },
-          swap = {
-            enable = true,
-            swap_next = {
-              ["<leader>xp"] = { query = "@parameter.inner", desc = "Swap parameter with the next one" },
-            },
-            swap_previous = {
-              ["<leader>xP"] = { query = "@parameter.inner", desc = "Swap parameter with the previous one" },
-            },
-          },
-        },
-      })
+	"nvim-treesitter/nvim-treesitter",
+	--commit = "4cccb6f494eb255b32a290d37c35ca12584c74d0",
+	--run = ':TSUpdate',
+	config = function()
+		require("nvim-treesitter.configs").setup({
+			ensure_installed = {
+				"bash",
+				"c",
+				"c_sharp",
+				"css",
+				"dockerfile",
+				"go",
+				"graphql",
+				"hcl",
+				"lua",
+				"javascript",
+				"json",
+				"json5",
+				"jsonc",
+				"html",
+				"markdown",
+				"markdown_inline",
+				"java",
+				"typescript",
+				"prisma",
+				"python",
+				"query",
+				"r",
+				"regex",
+				"scss",
+				"sql",
+				"vim",
+				"yaml",
+			}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+			highlight = {
+				enable = true, -- false will disable the whole extension
+				--disable = { "html" },  -- list of language that will be disabled
+			},
+			indent = {
+				enable = true,
+			},
+			matchup = {
+				enable = true, -- mandatory, false will disable the whole extension
+			},
+			playground = {
+				enable = true,
+				updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+				persist_queries = false, -- Whether the query persists across vim sessions
+			},
+			textobjects = {
+				select = {
+					enable = true,
 
-      -- Must installed zig via scoop in Windows
-      ---@diagnostic disable-next-line: undefined-field
-      if _G.IS_WINDOWS then
-        require("nvim-treesitter.install").compilers = { "zig" }
-      else
-        require("nvim-treesitter.install").compilers = { "zig", "clang", "gcc", "cc", "cl", "zig" }
-      end
-    end,
-  },
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    config = function()
-      require("treesitter-context").setup({ enable = false })
-    end,
-    cmd = "TSContextToggle",
-    init = function()
-      vim.keymap.set("n", "[c", function()
-        require("treesitter-context").go_to_context()
-      end, { silent = true, desc = "Go to TS context" })
-      vim.keymap.set("n", "<leader>tc", function()
-        require("treesitter-context").toggle()
-      end, { silent = true, desc = "Toggle TS Context" })
-    end,
-  },
+					-- Automatically jump forward to textobj, similar to targets.vim
+					lookahead = true,
+
+					keymaps = {
+						-- You can use the capture groups defined in textobjects.scm
+						["af"] = "@function.outer",
+						["if"] = "@function.inner",
+						["ab"] = "@block.outer",
+						["ib"] = "@block.inner",
+					},
+				},
+				move = {
+					enable = true,
+					set_jumps = true, -- whether to set jumps in the jumplist
+					goto_next_start = {
+						["]m"] = "@function.outer",
+						["]["] = "@block.outer",
+					},
+					goto_next_end = {
+						["]M"] = "@function.outer",
+						["]]"] = "@block.outer",
+					},
+					goto_previous_start = {
+						["[m"] = "@function.outer",
+						["[["] = "@block.outer",
+					},
+					goto_previous_end = {
+						["[M"] = "@function.outer",
+						["[]"] = "@block.outer",
+					},
+				},
+			},
+		})
+	end,
 }
