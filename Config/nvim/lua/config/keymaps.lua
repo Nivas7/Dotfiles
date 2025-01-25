@@ -4,7 +4,7 @@ local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "db", 'vb"_d')
 
 -- select all
-vim.keymap.set("n", "<c-a>", "gg<s-v>g")
+vim.keymap.set("n", "<c-s>", "gg<s-v>g")
 
 vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "copy to system clipboard" })
 vim.keymap.set({ "n", "v" }, "<leader>p", '"+p', { desc = "paste from system clipboard" })
@@ -39,3 +39,5 @@ vim.keymap.set("v", "<leader>r", '"hy:%s/<c-r>h//g<left><left>') -- replace all 
 vim.keymap.set("v", "<c-s>", ":sort<cr>") -- sort highlighted text in visual mode with control+s
 vim.keymap.set("v", "k", ":m '>-2<cr>gv=gv") -- move current line up
 vim.keymap.set("v", "j", ":m '>+1<cr>gv=gv") -- move current line down
+
+

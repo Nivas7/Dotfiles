@@ -1,5 +1,5 @@
 require("config.keymaps")
 require("config.options")
-require("status")
+require("core.statusline")
 require("config.lazy")
 require("config.autocmd")
