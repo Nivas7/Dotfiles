@@ -2,7 +2,7 @@ return {
 	{
 		"catppuccin/nvim",
 		priority = 1000,
-		enabled = true,
+		enabled = false,
 		name = "catppuccin",
 		config = function()
 			require("catppuccin").setup({
@@ -112,6 +112,7 @@ return {
 							NeoTreeFloatBorder = { link = "TelescopeResultsBorder" },
 							NeoTreeGitConflict = { fg = colors.red },
 							NeoTreeGitDeleted = { fg = colors.red },
+							NeoTreeExpander = { fg = "#505050" },
 							NeoTreeGitIgnored = { fg = colors.overlay0 },
 							NeoTreeGitModified = { fg = colors.peach },
 							NeoTreeGitStaged = { fg = colors.green },
@@ -354,9 +355,6 @@ return {
 					end,
 				},
 			})
-			vim.api.nvim_set_hl(0, "NavicIconsOperator", { default = true, bg = "none", fg = "#eedaad" })
-			vim.api.nvim_set_hl(0, "NavicText", { default = true, bg = "none", fg = "#eedaad" })
-			vim.api.nvim_set_hl(0, "NavicSeparator", { default = true, bg = "none", fg = "#eedaad" })
 
 			vim.api.nvim_command("colorscheme catppuccin")
 		end,
