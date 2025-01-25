@@ -1,147 +1,54 @@
+local default_settings = {
+  theme = "dropdown",
+  previewer = false,
+  prompt_title = false
+}
+
 return {
-	{
-		"nvim-telescope/telescope.nvim",
-		cmd = "Telescope",
-		version = false,
-		lazy = true,
-		dependencies = {
-			{ "nvim-lua/plenary.nvim" },
-			{ "nvim-tree/nvim-web-devicons" },
-			{ "nvim-telescope/telescope-fzf-native.nvim", build = "zig" },
-			{ "nvim-telescope/telescope-ui-select.nvim" },
-		},
-		keys = {
-			-- {
-			--	"<leader>ff",
-			-- 	function()
-			--		require("telescope.builtin").find_files()
-			-- 	end,
-			-- 	desc = "Find File (CWD)",
-			-- },
-			{
-				"<leader>gp",
-				function()
-					require("telescope.builtin").live_grep({
-						cwd = getProjectRoot(),
-						additional_args = {
-							"-g",
-							"!node_modules/",
-							"-g",
-							"!dist/",
-							"-g",
-							"!build/",
-							"-g",
-							"!codegen/",
-							"-g",
-							"!generated/",
-						},
-					})
-				end,
-				desc = "Grep Project",
-			},
-			{
-				"<leader>sH",
-				function()
-					require("telescope.builtin").highlights()
-				end,
-				desc = "Find highlight groups",
-			},
-			{
-				"<leader>sM",
-				function()
-					require("telescope.builtin").man_pages()
-				end,
-				desc = "Map Pages",
-			},
-			{
-				"<leader>so",
-				function()
-					require("telescope.builtin").oldfiles()
-				end,
-				desc = "Open Recent File",
-			},
-			{
-				"<leader>gc",
-				function()
-					require("telescope.builtin").live_grep({
-						cwd = vim.fn.getcwd(0, 0),
-						additional_args = {
-							"-g",
-							"!node_modules/",
-							"-g",
-							"!dist/",
-							"-g",
-							"!build/",
-							"-g",
-							"!codegen/",
-							"-g",
-							"!generated/",
-						},
-					})
-				end,
-				desc = "Grep CWD",
-			},
-			{
-				"<leader>sw",
-				function()
-					require("telescope.builtin").grep_string()
-				end,
-				desc = "Grep String",
-			},
-			{
-				"<leader>sk",
-				function()
-					require("telescope.builtin").keymaps()
-				end,
-				desc = "Keymaps",
-			},
-			{
-				"<leader>sC",
-				function()
-					require("telescope.builtin").commands()
-				end,
-				desc = "Commands",
-			},
-			{
-				"<leader><leader>",
-				function()
-					require("telescope.builtin").buffers()
-				end,
-				desc = "Buffers",
-			},
-			{
-				"<leader>sd",
-				function()
-					require("telescope.builtin").diagnostics()
-				end,
-				desc = "diagnostics",
-			},
-		},
-		config = function()
-			local telescope = require("telescope")
-			telescope.setup({
-				file_ignore_patterns = { "%.git/." },
-				defaults = {
-					preview = {
-						treesitter = false,
-					},
-				},
-				extensions = {
-					fzf = {
-						fuzzy = true, -- false will only do exact matching
-						override_generic_sorter = true, -- override the generic sorter
-						override_file_sorter = true, -- override the file sorter
-						case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-					},
-				},
-				borderchars = {
-					prompt = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-					results = { " ", " ", " ", " ", " ", " ", " ", " " },
-				},
-			})
-			telescope.load_extension("ui-select")
-			-- telescope.load_extension("refactoring")
-			-- telescope.load_extension("notify")
-		end,
-	},
+  'nvim-telescope/telescope.nvim',
+  branch = '0.1.x',
+  dependencies = {
+    'nvim-lua/plenary.nvim',
+    'nvim-telescope/telescope-fzf-native.nvim'
+  },
+  extensions = {
+    fzf = {}
+  },
+  opts = {
+    defaults = {
+      preview = {
+        filesize_limit = 0.1,
+      },
+    },
+    pickers = {
+      find_files = default_settings,
+      git_files = default_settings,
+      buffers = default_settings,
+      help_tags = default_settings,
+      command_history = default_settings,
+    },
+  },
+  keys = {
+    { '<leader>pf', require('telescope.builtin').find_files, desc = 'Find files' },
+    { '<leader>pg', require('telescope.builtin').git_files, desc = 'Find git tracked files' },
+    { '<leader>pb', require('telescope.builtin').buffers, desc = 'Find Buffer' },
+    { '<leader>ph', require('telescope.builtin').help_tags, desc = 'Search Help Tags' },
+    { '<leader>p:', require('telescope.builtin').command_history, desc = 'Command History' },
+    { '<leader>pd', require('telescope.builtin').diagnostics, desc = 'Workspace diagnostics' },
+    {
+      '<leader>ps',
+      function ()
+        require('telescope.builtin').grep_string({ search = vim.fn.input('Grep > ') })
+      end,
+      desc = 'Grep String'
+    },
+    {
+      '<leader>en',
+      function ()
+        require('telescope.builtin').find_files({ cwd = vim.fn.stdpath('config') })
+      end,
+      desc = 'Edit neovim'
+    }
+  },
+  lazy = true
 }

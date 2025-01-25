@@ -1,8 +1,9 @@
 return {
-  "folke/flash.nvim",
-  event = { "BufReadPost", "BufNewFile" },
-  vscode = true,
-  opts = {},
+	"folke/flash.nvim",
+	enabled = false,
+	event = { "BufReadPost", "BufNewFile" },
+	vscode = true,
+	opts = {},
   -- stylua: ignore
   keys = {
     { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
