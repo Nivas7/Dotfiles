@@ -1,9 +1,23 @@
--- Neovim plugin to improve the default vim.ui interfaces
+-- NOTE: Improve UI
 return {
-  "stevearc/dressing.nvim",
-  event = "VeryLazy",
-  opts = {
-    input = { default_prompt = "➤ " },
-    select = { backend = { "telescope", "builtin" } },
-  },
+	"stevearc/dressing.nvim",
+	event = "VeryLazy",
+	opts = {
+		input = {
+			enabled = true,
+			default_prompt = "➤ ",
+			win_options = {
+				winblend = 0,
+			},
+		},
+		select = {
+			enabled = true,
+			backend = { "telescope", "builtin" },
+			builtin = {
+				win_options = {
+					winblend = 0,
+				},
+			},
+		},
+	},
 }
