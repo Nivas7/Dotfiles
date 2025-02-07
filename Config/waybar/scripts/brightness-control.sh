@@ -10,12 +10,6 @@ Valid actions are:
 EOF
 }
 
-# Send a notification with brightness info
-send_notification() {
-  brightness=$(brightnessctl info | grep -oP "(?<=\()\d+(?=%)")
-  notify-send -r 91190 "Brightness: ${brightness}%"
-}
-
 # Get the current brightness percentage and device name
 get_brightness() {
   brightness=$(brightnessctl -m | grep -o '[0-9]\+%' | head -c-2)
@@ -62,29 +56,19 @@ done
 # Determine the icon based on brightness level
 get_icon() {
   if ((brightness <= 5)); then
-    icon=""
-  elif ((brightness <= 15)); then
-    icon=""
-  elif ((brightness <= 30)); then
-    icon=""
+    icon="󰃞 "
   elif ((brightness <= 45)); then
-    icon=""
-  elif ((brightness <= 55)); then
-    icon=""
-  elif ((brightness <= 65)); then
-    icon=""
-  elif ((brightness <= 80)); then
-    icon=""
-  elif ((brightness <= 95)); then
-    icon=""
+    icon="󰃝 "
+  elif ((brightness <= 75)); then
+    icon="󰃟 "
   else
-    icon=""
+    icon="󰃠 "
   fi
 }
 
 # Backlight module and tooltip
 get_icon
-module="${icon} ${brightness}%"
+module="${icon}"
 
 tooltip="Device Name: ${device}"
 tooltip+="\nBrightness:  ${current_brightness} / ${max_brightness}"
