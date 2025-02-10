@@ -6,3 +6,4 @@ Config/zsh/.z_database
 Config/zsh/custom.zsh
 # tmux
 Config/tmux/plugins/*
+Config/zsh/.zcompdump
