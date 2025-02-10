@@ -7,3 +7,4 @@ Config/zsh/custom.zsh
 # tmux
 Config/tmux/plugins/*
 Config/zsh/.zcompdump
+Config/zsh/.zcompdump
