@@ -36,8 +36,8 @@ return {
 	color_scheme = "Mountain",
 	automatically_reload_config = true,
 	font = wezterm.font_with_fallback({
-		"JetBrainsMono Nerd Font",
 		"Liga SFMono Nerd Font",
+		"JetBrainsMono Nerd Font",
 		"Apple Color Emoji",
 	}),
 	font_size = 10,

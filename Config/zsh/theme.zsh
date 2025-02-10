@@ -1,40 +1,40 @@
-##
-## Aesthetic Night Colorscheme
+## Black Metal (Gorgoroth) Colorscheme
 ##
 # special
-background='#1E1E2E'
-foreground='#CDD6F4'
+background='#000000'
+foreground='#c1c1c1'
 
 # black
-color0='#45475A'
-color8='#585B70'
+color0='#121212'
+color8='#333333'
 
 # red
-color1='#F38BA8'
-color9='#F38BA8'
+color1='#5f8787'
+color9='#5f8787'
 
 # green
-color2='#A6E3A1'
-color10='#A6E3A1'
+color2='#9b8d7f'
+color10='#9b8d7f'
 
 # yellow
-color3='#F9E2AF'
-color11='#F9E2AF'
+color3='#8c7f70'
+color11='#8c7f70'
 
 # blue
-color4='#89B4FA'
-color12='#89B4FA'
+color4='#888888'
+color12='#888888'
 
 # magenta
-color5='#F5C2E7'
-color13='#F5C2E7'
+color5='#999999'
+color13='#999999'
 
 # cyan
-color6='#94E2D5'
-color14='#94E2D5'
+color6='#aaaaaa'
+color14='#aaaaaa'
 
 # white
-color7='#BAC2DE'
-color15='#A6ADC8'
+color7='#c1c1c1'
+color15='#444444'
 
 # vim='iletype'=zsh
+

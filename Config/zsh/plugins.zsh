@@ -23,17 +23,10 @@ autoload compinit
 compinit
 
 zinit light-mode for \
-  hlissner/zsh-autopair \
   zdharma-continuum/fast-syntax-highlighting \
-  MichaelAquilina/zsh-you-should-use \
   zsh-users/zsh-autosuggestions \
   Aloxaf/fzf-tab
 
-zinit ice wait'3' lucid
-zinit light zsh-users/zsh-history-substring-search
-
-zinit ice wait'2' lucid
-zinit light zdharma-continuum/history-search-multi-word
 
 # FZF
 zinit ice from"gh-r" as"command"
