@@ -25,11 +25,9 @@ compinit
 zinit light-mode for \
   zdharma-continuum/fast-syntax-highlighting \
   zsh-users/zsh-autosuggestions \
-  Aloxaf/fzf-tab
 
 
 # FZF
 zinit ice from"gh-r" as"command"
-zinit light junegunn/fzf-bin
 
 # vim:ft=zsh
