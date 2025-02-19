@@ -1,3 +1,12 @@
+
+> [!CAUTION]
+> It is Currently Unmaintained!
+
+> [!NOTE]  
+> Maintained Dots are in [hypr-dots](https://github.com/nivas7/hypr-dots).
+
+
+
 <div align="center">
 
 # Nivaz dotfiles
